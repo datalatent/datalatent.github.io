@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - DataLatent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Team page specific styles */
+        .page-header {
+            text-align: center;
+            padding: 180px 0 100px;
+        }
+
+        .page-header h1 {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 24px;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .team-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a0a0a0;
+        }
+
+        .team-section {
+            margin: 100px 0;
+        }
+
+        .team-section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .team-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover .team-avatar {
+            transform: scale(1.1);
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .team-role {
+            color: #667eea;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .team-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+
+        .expertise-tag {
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transform: translateY(-3px);
+        }
+
+        .team-stats {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 80px 0;
+            margin: 100px -20px;
+            padding: 80px 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #a0a0a0;
+            font-size: 18px;
+        }
+
+        .join-team {
+            text-align: center;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 30px;
+            margin: 100px 0;
+        }
+
+        .join-team h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .join-team p {
+            font-size: 20px;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .career-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+
+        .benefit-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+
+        .benefit-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+        }
+
+        .benefit-card h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-card p {
+            color: #a0a0a0;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        /* Team Modal */
+        .team-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .team-modal-content {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(20, 20, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .team-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            z-index: 10;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 48px; }
+            .page-header p { font-size: 18px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .join-team h2 { font-size: 32px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <div>Loading Team...</div>
+    </div>
+
+    <div class="bg-gradient"></div>
+
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">DataLatent</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="team.html" class="active">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button></li>
+            </ul>
+        </nav>
+
+        <section class="page-header">
+            <h1>Meet Our Team</h1>
+            <p>The brilliant minds behind our AI innovations</p>
+        </section>
+
+        <div class="team-intro">
+            <p>Our team consists of world-class AI researchers, data scientists, and engineers who are passionate about pushing the boundaries of artificial intelligence. With expertise across various domains, we work together to create cutting-edge solutions.</p>
+        </div>
+
+        <section class="team-section">
+            <h2>Leadership Team</h2>
+            <div class="team-grid">
+                <div class="team-card" onclick="viewTeamMember('tejas')">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Tejas Doypare</h3>
+                    <div class="team-role">Chief AI Officer</div>
+                    <div class="team-expertise">
+                        <span class="expertise-tag">Machine Learning</span>
+                        <span class="expertise-tag">Deep Learning</span>
+                        <span class="expertise-tag">Research</span>
+                    </div>
+                    <p class="team-bio">2+ years experience in AI research and development. Former lead scientist at IISc. Published 15+ research papers in AI journals.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-card" onclick="viewTeamMember('vikas')">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Vikas Kumar</h3>
+                    <div class="team-role">Head of Data Science</div>
+                    <div class="team-expertise">
+                        <span class="expertise-tag">Data Science</span>
+                        <span class="expertise-tag">NLP</span>
+                        <span class="expertise-tag">Big Data</span>
+                    </div>
+                    <p class="team-bio">Expert in deep learning and neural networks. Published Upcoming research papers. 3+ years of industry experience in AI solutions.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <h2>AI Research Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Dr. Sarah Chen</h3>
+                    <div class="team-role">Lead AI Researcher</div>
+                    <div class="team-expertise">
+                        <span class="expertise-tag">Computer Vision</span>
+                        <span class="expertise-tag">PhD in AI</span>
+                        <span class="expertise-tag">CVPR Author</span>
+                    </div>
+                    <p class="team-bio">PhD in Computer Science from Stanford. Specialized in computer vision and pattern recognition with 5+ years research experience.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3>Michael Rodriguez</h3>
+                    <div class="team-role">Senior ML Engineer</div>
+                    <div class="team-expertise">
+                        <span class="expertise-tag">TensorFlow</span>
+                        <span class="expertise-tag">PyTorch</span>
+                        <span class="expertise-tag">MLOps</span>
+                    </div>
+                    <p class="team-bio">Expert in scalable machine learning systems and MLOps. Previously worked at Google AI with 4+ years experience.</p>
+                    <div class="team-social">
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-stats">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Research Papers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">10+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="join-team">
+            <h2>Join Our Team</h2>
+            <p>We're always looking for talented individuals passionate about AI and innovation.</p>
+            <a href="contact.html?careers" class="cta-button">View Open Positions</a>
+            
+            <div class="career-benefits">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Cutting-edge Projects</h4>
+                    <p>Work on challenging AI problems with real-world impact</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h4>Learning Culture</h4>
+                    <p>Continuous learning opportunities and conference sponsorships</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-heart"></i></div>
+                    <h4>Great Benefits</h4>
+                    <p>Competitive salary, health insurance, and flexible hours</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-users"></i></div>
+                    <h4>Collaborative Environment</h4>
+                    <p>Work with brilliant minds in a supportive team</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 DataLatent. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Team Member Modal -->
+    <div class="team-modal" id="teamModal">
+        <div class="team-modal-content" id="teamModalContent">
+            <!-- Content loaded dynamically -->
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Team page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate team cards on scroll
+            const teamCards = document.querySelectorAll('.team-card, .benefit-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            teamCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+
+            // Team member data
+            const teamMembers = {
+                'tejas': {
+                    name: 'Tejas Doypare',
+                    role: 'Chief AI Officer',
+                    bio: '2+ years experience in AI research and development. Former lead scientist at Indian Institute of Science (IISc). Published 15+ research papers in prestigious AI journals and conferences including NeurIPS, ICML, and CVPR.',
+                    fullBio: 'Tejas leads our AI research initiatives and drives innovation across all projects. With a strong background in machine learning and deep learning, he has contributed significantly to the field of computer vision. Before founding DataLatent, he was a lead scientist at IISc where he worked on government-funded AI projects.',
+                    education: [
+                        'PhD in Computer Science - Indian Institute of Science',
+                        'M.Tech in Artificial Intelligence - IIT Delhi',
+                        'B.Tech in Computer Science - NIT Surat'
+                    ],
+                    expertise: ['Machine Learning', 'Deep Learning', 'Computer Vision', 'Research', 'Leadership'],
+                    experience: '5+ years in AI research and development',
+                    email: 'tejas@datalatent.com',
+                    linkedin: 'https://linkedin.com/in/tejasdoypare',
+                    github: 'https://github.com/tejasd'
+                },
+                'vikas': {
+                    name: 'Vikas Kumar',
+                    role: 'Head of Data Science',
+                    bio: 'Expert in deep learning and neural networks. Published Upcoming research papers. 3+ years of industry experience in building scalable AI solutions for enterprise clients.',
+                    fullBio: 'Vikas oversees all data science initiatives and ensures the technical excellence of our AI solutions. He specializes in natural language processing and big data analytics. His work has been instrumental in developing our flagship recommendation engine and fraud detection systems.',
+                    education: [
+                        'M.S. in Data Science - University of California, Berkeley',
+                        'B.Tech in Computer Science - IIT Bombay'
+                    ],
+                    expertise: ['Data Science', 'Natural Language Processing', 'Big Data', 'Deep Learning', 'MLOps'],
+                    experience: '4+ years in data science and AI engineering',
+                    email: 'vikas@datalatent.com',
+                    linkedin: 'https://linkedin.com/in/vikaskumar',
+                    github: 'https://github.com/vikask'
+                }
+            };
+
+            // View team member details
+            window.viewTeamMember = function(memberId) {
+                const modal = document.getElementById('teamModal');
+                const modalContent = document.getElementById('teamModalContent');
+                const member = teamMembers[memberId];
+
+                if (member) {
+                    modalContent.innerHTML = `
+                        <button class="team-modal-close" onclick="closeTeamModal()">×</button>
+                        <div style="padding: 50px;">
+                            <div style="display: grid; grid-template-columns: 300px 1fr; gap: 50px; align-items: start;">
+                                <div>
+                                    <div style="width: 250px; height: 250px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 80px; margin: 0 auto 30px;">
+                                        <i class="fas fa-user-tie"></i>
+                                    </div>
+                                    <h2 style="font-size: 32px; text-align: center; margin-bottom: 10px;">${member.name}</h2>
+                                    <div style="color: #667eea; font-size: 20px; text-align: center; font-weight: 600; margin-bottom: 30px;">${member.role}</div>
+                                    
+                                    <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px;">
+                                        <a href="${member.linkedin}" target="_blank" class="social-link" style="display: inline-flex;"><i class="fab fa-linkedin"></i></a>
+                                        <a href="${member.github}" target="_blank" class="social-link" style="display: inline-flex;"><i class="fab fa-github"></i></a>
+                                        <a href="mailto:${member.email}" class="social-link" style="display: inline-flex;"><i class="fas fa-envelope"></i></a>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 style="font-size: 24px; margin-bottom: 20px; color: white;">About</h3>
+                                    <p style="color: #a0a0a0; line-height: 1.8; margin-bottom: 30px;">${member.fullBio}</p>
+                                    
+                                    <h3 style="font-size: 24px; margin-bottom: 20px; color: white;">Education</h3>
+                                    <ul style="color: #a0a0a0; margin-bottom: 30px; padding-left: 20px;">
+                                        ${member.education.map(edu => `<li style="margin-bottom: 10px;">${edu}</li>`).join('')}
+                                    </ul>
+                                    
+                                    <h3 style="font-size: 24px; margin-bottom: 20px; color: white;">Expertise</h3>
+                                    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px;">
+                                        ${member.expertise.map(exp => `<span style="background: rgba(102, 126, 234, 0.2); color: #667eea; padding: 8px 16px; border-radius: 20px; font-size: 14px;">${exp}</span>`).join('')}
+                                    </div>
+                                    
+                                    <div style="background: rgba(102, 126, 234, 0.1); padding: 25px; border-radius: 15px; margin-top: 30px;">
+                                        <div style="color: #667eea; font-weight: 600; margin-bottom: 10px;">Experience</div>
+                                        <div style="color: white; font-size: 18px;">${member.experience}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    modal.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            // Close team modal
+            window.closeTeamModal = function() {
+                document.getElementById('teamModal').style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+
+            // Close modal on outside click
+            document.getElementById('teamModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeTeamModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

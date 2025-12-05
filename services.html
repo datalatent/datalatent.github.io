@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - DataLatent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Services page specific styles */
+        .page-header {
+            text-align: center;
+            padding: 180px 0 100px;
+        }
+
+        .page-header h1 {
+            font-size: 72px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 24px;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 80px;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #a0a0a0;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 80px 0;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #667eea;
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 35px;
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .service-card p {
+            color: #a0a0a0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .service-features {
+            list-style: none;
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .service-features li {
+            padding: 12px 0;
+            color: #a0a0a0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .service-features li:before {
+            content: '✓';
+            color: #667eea;
+            margin-right: 12px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .pricing-section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.02);
+            margin: 100px -20px;
+            padding: 100px 20px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 60px auto 0;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 20px 0;
+        }
+
+        .price-period {
+            color: #a0a0a0;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .process-section {
+            padding: 100px 0;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-step {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-weight: 600;
+            font-size: 20px;
+        }
+
+        .process-step h4 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 30px;
+            margin: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 20px;
+            color: #a0a0a0;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        @media (max-width: 768px) {
+            .page-header h1 { font-size: 48px; }
+            .page-header p { font-size: 18px; }
+            .pricing-card.featured { transform: none; }
+            .services-grid, .pricing-grid { grid-template-columns: 1fr; }
+            .process-steps { gap: 20px; }
+            .cta-section h2 { font-size: 32px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+        <div>Loading Services...</div>
+    </div>
+
+    <div class="bg-gradient"></div>
+
+    <div class="container">
+        <nav>
+            <a href="index.html" class="logo">DataLatent</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="team.html">Team</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><button class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </button></li>
+            </ul>
+        </nav>
+
+        <section class="page-header">
+            <h1>Our AI Services</h1>
+            <p>Transform your business with our comprehensive AI solutions</p>
+        </section>
+
+        <div class="services-intro">
+            <p>We offer end-to-end AI solutions tailored to your business needs. From consulting and strategy to implementation and support, we're your partner in digital transformation.</p>
+        </div>
+
+        <section>
+            <h2 class="section-title">Core Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI Consulting</h3>
+                    <p>Strategic guidance to identify AI opportunities and create implementation roadmaps.</p>
+                    <ul class="service-features">
+                        <li>AI Strategy Development</li>
+                        <li>Use Case Identification</li>
+                        <li>ROI Analysis</li>
+                        <li>Implementation Planning</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px;">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Custom AI Development</h3>
+                    <p>Build custom AI models and algorithms tailored to your specific business needs.</p>
+                    <ul class="service-features">
+                        <li>Machine Learning Models</li>
+                        <li>Deep Learning Solutions</li>
+                        <li>Natural Language Processing</li>
+                        <li>Computer Vision Systems</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px;">Get Started</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>Data Analytics</h3>
+                    <p>Transform raw data into actionable insights with advanced analytics solutions.</p>
+                    <ul class="service-features">
+                        <li>Predictive Analytics</li>
+                        <li>Real-time Dashboards</li>
+                        <li>Data Visualization</li>
+                        <li>Business Intelligence</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px;">Explore Analytics</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                    <h3>AI Integration</h3>
+                    <p>Seamlessly integrate AI capabilities into your existing systems and workflows.</p>
+                    <ul class="service-features">
+                        <li>API Development</li>
+                        <li>System Integration</li>
+                        <li>Legacy Modernization</li>
+                        <li>Cloud Migration</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px;">Integrate AI</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3>AI Support & Maintenance</h3>
+                    <p>Ongoing support and optimization for your AI systems and infrastructure.</p>
+                    <ul class="service-features">
+                        <li>24/7 Monitoring</li>
+                        <li>Performance Optimization</li>
+                        <li>Model Retraining</li>
+                        <li>Security Updates</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px;">Get Support</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>AI Training</h3>
+                    <p>Empower your team with AI knowledge through comprehensive training programs.</p>
+                    <ul class="service-features">
+                        <li>Employee Training</li>
+                        <li>Workshops</li>
+                        <li>Certification Programs</li>
+                        <li>Knowledge Transfer</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px;">Schedule Training</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <h2 class="section-title">Flexible Pricing Plans</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">$5,000</div>
+                    <div class="price-period">per month</div>
+                    <ul class="service-features">
+                        <li>Basic AI Consulting</li>
+                        <li>Pre-built AI Models</li>
+                        <li>Standard Analytics</li>
+                        <li>Email Support</li>
+                        <li>Monthly Reports</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px; margin-top: 20px;">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">$15,000</div>
+                    <div class="price-period">per month</div>
+                    <ul class="service-features">
+                        <li>Custom AI Development</li>
+                        <li>Advanced Analytics</li>
+                        <li>Priority Support</li>
+                        <li>Weekly Reports</li>
+                        <li>Training Sessions</li>
+                        <li>API Access</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px; margin-top: 20px;">Get Started</a>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Custom</div>
+                    <div class="price-period">tailored pricing</div>
+                    <ul class="service-features">
+                        <li>Full AI Suite</li>
+                        <li>Dedicated Team</li>
+                        <li>24/7 Premium Support</li>
+                        <li>Real-time Dashboards</li>
+                        <li>Unlimited Training</li>
+                        <li>White-label Solutions</li>
+                    </ul>
+                    <a href="contact.html" class="cta-button" style="padding: 12px 30px; margin-top: 20px;">Contact Sales</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <h2 class="section-title">Our Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4>Discovery & Analysis</h4>
+                    <p>We analyze your business needs, data infrastructure, and identify AI opportunities.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4>Strategy & Planning</h4>
+                    <p>Develop a comprehensive AI strategy with clear objectives and timelines.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4>Development & Testing</h4>
+                    <p>Build, train, and test AI models using industry best practices.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4>Deployment & Integration</h4>
+                    <p>Deploy solutions and integrate with your existing systems seamlessly.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4>Support & Optimization</h4>
+                    <p>Provide ongoing support and continuously optimize AI performance.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let's discuss how AI can drive innovation and growth in your organization.</p>
+            <a href="contact.html" class="cta-button">Schedule a Free Consultation</a>
+        </div>
+
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="team.html">Team</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <p>&copy; 2025 DataLatent. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Services page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate service cards on scroll
+            const serviceCards = document.querySelectorAll('.service-card, .pricing-card, .process-step');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            serviceCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+
+            // Pricing card interaction
+            const pricingCards = document.querySelectorAll('.pricing-card');
+            pricingCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    if (!card.classList.contains('featured')) {
+                        card.style.transform = 'translateY(-10px)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    if (!card.classList.contains('featured')) {
+                        card.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
