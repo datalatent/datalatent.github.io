@@ -199,12 +199,12 @@
 .logo {
     display: flex;
     align-items: center;
-    height: 50px; /* Fixed height for logo container */
+    height: auto; /* Fixed height for logo container */
     cursor: pointer;
 }
 
 .logo-image {
-    height: 50px; /* Fixed logo height */
+    height: auto; /* Fixed logo height */
     width: auto;
     max-width: 200px;
     transition: all 0.3s ease;
@@ -222,11 +222,11 @@ body.light-mode .logo-image {
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .logo-container {
-        height: 45px;
+        height: auto;
     }
     .logo-image {
-        height: 45px;
-        max-width: 170px;
+        height: auto;
+        max-width: 160px;
     }
 }
 
