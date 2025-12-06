@@ -1254,6 +1254,54 @@
             color: #666666;
         }
 
+
+        /* Fix for select dropdown */
+        .form-select {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23667eea' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 16px;
+        }
+
+        .form-select:focus {
+            outline: none;
+            border-color: #667eea;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Style for dropdown options */
+        .form-select option {
+            background: #0a0a0a;
+            color: white;
+            padding: 10px;
+        }
+
+        /* Light mode styles */
+        body.light-mode .form-select {
+            background: rgba(0, 0, 0, 0.03);
+            border-color: rgba(0, 0, 0, 0.1);
+            color: #000000;
+        }
+
+        body.light-mode .form-select option {
+            background: #ffffff;
+            color: #000000;
+        }
+
+
+
         /* Responsive Design */
         @media (max-width: 1024px) {
             .nav-links {
@@ -1377,6 +1425,16 @@
                 font-size: 48px;
             }
         }
+
+        select option {
+    background: #0a0a0a;
+    color: white;
+}
+
+body.light-mode select option {
+    background: white;
+    color: black;
+}
     </style>
 </head>
 <body>
@@ -1543,29 +1601,6 @@
         </section>
 
         
-
-        <section class="stats" id="about">
-            <h2 class="section-title">Results That Matter</h2>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h2 class="counter" data-target="98">0</h2>
-                    <p>Client Satisfaction</p>
-                </div>
-                <div class="stat-item">
-                    <h2 class="counter" data-target="500">0</h2>
-                    <p>Projects Delivered</p>
-                </div>
-                <div class="stat-item">
-                    <h2 class="counter" data-target="50">0</h2>
-                    <p>Data Points Analyzed (M+)</p>
-                </div>
-                <div class="stat-item">
-                    <h2>24/7</h2>
-                    <p>Support Available</p>
-                </div>
-            </div>
-        </section>
-
         
         <section class="newsletter">
             <div class="newsletter-box">
@@ -1597,8 +1632,8 @@
                     <label for="company" class="form-label">Company Name</label>
                 </div>
                 <div class="form-group">
-                    <select name="service" id="service" style="width: 100%; padding: 18px 24px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; color: white; font-size: 16px;">
-                        <option value="" disabled selected>Select Service</option>
+            <select name="service" id="service" class="form-select">
+                <option value="" disabled selected>Select Service</option>
                         <option value="chatbot">AI Chatbot Development</option>
                         <option value="video-analytics">Video Object Detection</option>
                         <option value="mapping">Virtual-to-Physical Mapping</option>
@@ -1633,7 +1668,10 @@
             </div>
             <p>&copy; 2025 DataLatent.com | Empowering businesses with AI solutions</p>
             <p style="color: #667eea; margin-top: 10px; font-size: 14px;">
-                <i class="fas fa-envelope"></i> datalatent@gmail.com
+                <i class="fas fa-envelope"></i>
+                 <a href="mailto:datalatent@gmail.com">
+        datalatent@gmail.com
+     </a>
             </p>
         </footer>
     </div>
