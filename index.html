@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "uh8z9dyecg");
-</script>
-
-
 <head>
     <meta charset="UTF-8">
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "uh8z9dyecg");
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="DataLatent - AI Solutions & Services including Chatbots, Video Analytics, Virtual-to-Physical Mapping, and Custom AI Models">
     <meta name="keywords" content="AI, Machine Learning, Chatbot, Video Analytics, Object Detection, AI Consulting">
@@ -146,16 +145,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .logo {
-
-            font-size: 28px;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            cursor: pointer;
-        }
+        /* .logo styles defined below in Logo Container section */
 
         .nav-links {
             display: flex;
@@ -197,17 +187,16 @@
         }
        
            
-/* Logo Container - KEEP THIS ONE */
 /* Logo Container */
 .logo {
     display: flex;
     align-items: center;
-    height: auto; /* Fixed height for logo container */
+    height: auto;
     cursor: pointer;
 }
 
 .logo-image {
-    height: auto; /* Fixed logo height */
+    height: auto;
     width: auto;
     max-width: 40px;
     transition: all 0.3s ease;
@@ -222,29 +211,7 @@
 body.light-mode .logo-image {
     filter: brightness(0) invert(0);
 }
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .logo-container {
-        height: auto;
-    }
-    .logo-image {
-        height: 40px;
-        max-width: 40px;
-    }
-}
 
-@media (max-width: 480px) {
-    .logo-container {
-        height: 40px;
-    }
-    .logo-image {
-        height: 40px;
-        max-width: 140px;
-    }
-}
-
-
-/* Responsive adjustments */
 @media (max-width: 768px) {
     .logo-image {
         height: 35px;
@@ -1738,16 +1705,15 @@ body.light-mode select option {
                 <a href="#services">Services</a>
               
                 <a href="#contact">Contact</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
+                <!-- TODO: Add Privacy Policy and Terms of Service pages -->
             </div>
             <div class="social-icons">
-                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/DataLatent_" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/datalatent/#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/datalatent" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/DataLatent_" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://github.com/datalatent" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/datalatent/" class="social-icon" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
             </div>
-            <p>&copy; 2025 DataLatent.com | Empowering businesses with AI solutions</p>
+            <p>&copy; 2026 DataLatent.com | Empowering businesses with AI solutions</p>
             <p style="color: #667eea; margin-top: 10px; font-size: 14px;">
                 <i class="fas fa-envelope"></i>
                  <a href="mailto:datalatent@gmail.com">
@@ -1927,11 +1893,36 @@ body.light-mode select option {
                 description: "Process petabytes of data in milliseconds with our optimized AI infrastructure. Perfect for applications requiring instant decision-making and real-time analytics.",
                 technologies: ["Stream Processing", "Distributed Computing", "GPU Acceleration"],
                 benefits: ["Millisecond latency", "99.9% uptime", "Auto-scaling"]
+            },
+            {
+                title: "Enterprise Security",
+                description: "Protect your sensitive data with our bank-level encryption and security protocols. Our multi-layered security approach ensures your AI models and data remain safe from threats.",
+                technologies: ["AES-256 Encryption", "Zero-Trust Architecture", "SOC 2 Compliance"],
+                benefits: ["99.99% threat prevention", "End-to-end encryption", "Regulatory compliance"]
+            },
+            {
+                title: "Scalable Solutions",
+                description: "Grow seamlessly from startup to enterprise with our flexible architecture. Our cloud-native infrastructure automatically scales to meet your demands without downtime.",
+                technologies: ["Kubernetes", "Microservices", "Cloud-Native"],
+                benefits: ["Auto-scaling infrastructure", "Zero downtime deployments", "Pay-as-you-grow pricing"]
+            },
+            {
+                title: "Custom Models",
+                description: "Get AI models tailored specifically for your unique business challenges. Our team of data scientists works closely with you to design, train, and deploy models that deliver measurable results.",
+                technologies: ["Transfer Learning", "AutoML", "Custom Neural Networks"],
+                benefits: ["Domain-specific accuracy", "Faster time to production", "Continuous model improvement"]
+            },
+            {
+                title: "Expert Support",
+                description: "Our team of AI specialists and data scientists provides round-the-clock technical support. From model tuning to infrastructure issues, we're here to ensure your AI solutions run flawlessly.",
+                technologies: ["Dedicated Support Team", "SLA Guarantees", "Proactive Monitoring"],
+                benefits: ["24/7 availability", "< 1 hour response time", "Dedicated account manager"]
             }
         ];
 
         function showFeatureDetails(index) {
             const feature = featureDetails[index];
+            if (!feature) return;
             const modalBody = document.getElementById('modalBody');
             
             modalBody.innerHTML = `
