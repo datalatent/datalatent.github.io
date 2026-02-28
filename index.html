@@ -576,6 +576,167 @@ body.light-mode .logo-image {
             border-color: #667eea;
         }
 
+        /* Products Section */
+        .products {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .products::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #667eea, transparent);
+        }
+
+        .products-subtitle {
+            text-align: center;
+            color: #667eea;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .product-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .product-image-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .product-image-wrapper:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 80px rgba(102, 126, 234, 0.4);
+        }
+
+        .product-image-wrapper img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .product-live-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #00c853, #00e676);
+            color: #000;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.4); }
+            50% { box-shadow: 0 0 0 10px rgba(0, 200, 83, 0); }
+        }
+
+        .product-info h3 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .product-info > p {
+            color: #a0a0a0;
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .product-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .product-tech-tags span {
+            background: rgba(102, 126, 234, 0.15);
+            color: #667eea;
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .product-highlights {
+            list-style: none;
+            margin-bottom: 35px;
+        }
+
+        .product-highlights li {
+            color: #c0c0c0;
+            padding: 10px 0;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .product-highlights li i {
+            color: #667eea;
+            font-size: 14px;
+        }
+
+        .product-cta {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .product-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(102, 126, 234, 0.6);
+        }
+
+        .product-cta i {
+            margin-left: 8px;
+        }
+
+        @media (max-width: 968px) {
+            .product-showcase {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-info h3 {
+                font-size: 28px;
+            }
+        }
+
         /* Stats Section */
         .stats {
             padding: 100px 0;
@@ -1509,8 +1670,7 @@ body.light-mode select option {
                 <li><a href="#home" class="active" onclick="setActiveLink(this)">Home</a></li>
                 <li><a href="#features" onclick="setActiveLink(this)">Features</a></li>
                 <li><a href="#services" onclick="setActiveLink(this)">Services</a></li>
-          
-           
+                <li><a href="#products" onclick="setActiveLink(this)">Products</a></li>
                 <li><a href="#contact" onclick="setActiveLink(this)">Contact</a></li>
                 <li><button class="theme-toggle" onclick="toggleTheme()">
                     <i class="fas fa-moon"></i>
@@ -1648,8 +1808,45 @@ body.light-mode select option {
             </div>
         </section>
 
-        
-        
+        <!-- PRODUCTS SECTION -->
+        <section class="products" id="products">
+            <p class="products-subtitle">Our Products</p>
+            <h2 class="section-title">Live AI Tools</h2>
+
+            <div class="product-showcase">
+                <div class="product-image-wrapper">
+                    <a href="https://pdf-qa.datalatent.com" target="_blank" rel="noopener noreferrer">
+                        <img src="pdf_qa_web.png" alt="RAG-Powered PDF Q&A Tool - Upload PDFs and ask questions using AI">
+                        <div class="product-live-badge"><i class="fas fa-circle" style="font-size: 8px; margin-right: 5px;"></i> Live</div>
+                    </a>
+                </div>
+
+                <div class="product-info">
+                    <h3>RAG-Powered PDF Q&A</h3>
+                    <p>Upload any PDF document and ask questions in natural language. Our tool uses Retrieval-Augmented Generation (RAG) to provide accurate, context-aware answers grounded in your document content.</p>
+
+                    <div class="product-tech-tags">
+                        <span>Vector Search</span>
+                        <span>RAG Pipeline</span>
+                        <span>GPT-4o-mini</span>
+                        <span>Astra DB</span>
+                    </div>
+
+                    <ul class="product-highlights">
+                        <li><i class="fas fa-check-circle"></i> Upload & process any PDF document</li>
+                        <li><i class="fas fa-check-circle"></i> Natural language question answering</li>
+                        <li><i class="fas fa-check-circle"></i> Supports GitHub Models (free) & OpenAI</li>
+                        <li><i class="fas fa-check-circle"></i> Vector-based semantic search for accuracy</li>
+                        <li><i class="fas fa-check-circle"></i> Beautiful themed UI with multiple styles</li>
+                    </ul>
+
+                    <a href="https://pdf-qa.datalatent.com" target="_blank" rel="noopener noreferrer" class="product-cta">
+                        Try It Live <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <section class="newsletter">
             <div class="newsletter-box">
                 <h3><i class="fas fa-envelope"></i> Stay Updated</h3>
@@ -1703,7 +1900,7 @@ body.light-mode select option {
                 <a href="#home">Home</a>
                 <a href="#features">Features</a>
                 <a href="#services">Services</a>
-              
+                <a href="#products">Products</a>
                 <a href="#contact">Contact</a>
                 <!-- TODO: Add Privacy Policy and Terms of Service pages -->
             </div>
